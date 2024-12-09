@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+	<div class="bg">
+		<img src="巨鸽登录图片.png" alt="" class="q">
+		<style>
+			.q {
+				width: 706px;
+				height: 453px;
+				margin: auto;
+				border-radius: 5px 5px 5px 5px;
+			}
+		</style>
+
+
+		<div class="f">
+			<input class="textCus" type="text" placeholder="用户名">
+
+		</div>
+
+		<div class="f2">
+			<input class="text2" type="password" placeholder="密码">
+
+		</div>
+
+		<div onclick="login()" class="login">点击登录</div>
+
+
+	</div>
+
+	<style>
+		.f {
+			width: 500px;
+			height: 44px;
+			border-color: #4E6EF2;
+			border-radius: 10px;
+			display: inline-block;
+			position: relative;
+			left: 130px;
+			top: -260px;
+		}
+
+		.f2 {
+			width: 500px;
+			height: 44px;
+			border-color: #4E6EF2;
+			border-radius: 10px;
+			display: inline-block;
+			position: relative;
+			left: 130px;
+			top: -220px;
+		}
+
+		.textCus {
+			width: 450px;
+			height: 40px;
+			border-color: #4E6EF2;
+			outline: #4E6EF2;
+			border-radius: 10px 10px 10px 10px;
+			display: inline-block;
+		}
+
+		.text2 {
+			width: 450px;
+			height: 40px;
+			border-color: #4E6EF2;
+			outline: #4E6EF2;
+			border-radius: 10px 10px 10px 10px;
+			display: inline-block;
+		}
+
+		/*2.三个div: 用户名（取得value，操作）
+                       密码（暂不做处理
+                       点击确认（点击之后页面消失-none）*/
+
+
+		.bg {
+
+			
+			width: 710px;
+			height: 455px;
+			margin: auto;
+			position: absolute;
+			top: 23px;
+			left: 353px;
+			z-index: 999;
+
+
+		}
+
+		.login {
+			width: 460px;
+			height: 40px;
+			background-color: #4E6EF2;
+			position: relative;
+			left: 130px;
+			top: -160px;
+			border-radius: 5px;
+			color: white;
+			text-align: center;
+			line-height: 33px;
+			font-size: 16px;
+		}
+	</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sureBt">
+
+	<div class="bodyK">
+		<div class="top">
+			<div class="wx">
+				巨鸽
+			</div>
+			<div class="sc">
+				<img src="C:\Users\黄健安\Downloads\搜索 (1).png" alt="">
+				<style>
+					.sc {
+						width: 20px;
+						height: 20px;
+						position: relative;
+						top: -1px;
+						left: 127px;
+					}
+				</style>
+			</div>
+			<div class="sc2">
+				<img src="C:\Users\黄健安\Downloads\添加 (2).png" alt="">
+				<style>
+					.sc2 {
+						width: 20px;
+						height: 20px;
+						position: relative;
+						top: -21px;
+						left: 154px;
+					}
+				</style>
+			</div>
+
+		</div>
+		<div class="friend1" onclick="des()">
+			<div class="leftBgProfile">
+				
+			</div>
+			<div class="name"></div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+	<div class="interface">
+		<div class="toptitle">
+
+		</div>
+
+		<div class="chatcontent">
+
+		</div>
+
+		<div class="text">
+			<input type="text" class="textin" placeholder="请输入">
+			<div onclick="send()" class="send">发送</div>
+		</div>
+	</div>
+
+</div>
+<style>
+	.sureBt{
+		width: 706px;
+		height: 455px;
+		position: absolute;
+		top: 25px;
+		left: 353px;
+	}
+</style>
+
+
+	<script>
+
+
+		///！！！！！登录界面
+
+		var personName
+		var nameLenth
+		//得到好友名字和长度
+		var friendName
+		function login() {
+			/*获取节点     然后获取具体内容   --得到用户名*/
+			personName = document.querySelector(".textCus").value + ''
+			nameLenth  = personName.length
+			console.log(personName)
+			
+			//得到节点toptitle"
+			var top = document.querySelector(".toptitle")
+			/* innerHTML:中间商  转换字符串和代码*/
+			top.innerHTML = top.innerHTML + '巨鸽聊天室'
+
+			/*得到左边界面的节点*/
+			var leftBg1=document.querySelector(".leftBgProfile")
+			var leftBg2=document.querySelector(".name")
+			leftBg1.innerHTML = leftBg1.innerHTML + '巨鸽'
+			leftBg2.innerHTML = leftBg2.innerHTML + '巨鸽聊天室'
+
+
+
+			var loginBody = document.querySelector(".bg")
+
+			var msg = `<style>
+        .bg{
+            display: none;
+        }
+    </style>`
+			/* innerHTML:中间商  转换字符串和代码*/
+			loginBody.innerHTML = loginBody.innerHTML + msg
+		}
+
+
+
+		/*节点  !!!左边界面  待解锁点击显示不同聊天
+		var leftBody = document.querySelector(".bodyK")
+		function des() {
+			var msg = `<style>
+        .bodyK{
+            display: ;
+        }
+    </style>`
+			/* innerHTML:中间商  转换字符串和代码
+			leftBody.innerHTML = leftBody.innerHTML + msg
+		}*/
+
+
+
+
+
+		
+
+		//设置连接web服务器【封装好的】
+		var websocket = new WebSocket("http://2m8p7c.natappfree.cc/My")
+		websocket.onopen = function () {
+			console.log('WebSocket 连接已经建立。');
+		};
+		//个人ID
+		var time = new Date();
+		var hour = time.getHours()
+		var min = time.getMinutes();
+		console.log(time.getTime())
+		var id = time.getTime() + ''
+
+
+
+
+
+
+		websocket.onmessage = function (event) {
+			console.log('收到服务器消息：', event.data);
+			var severToCustom = JSON.parse(event.data).message + ''
+			//得到发消息人的名字长度
+			var len=severToCustom.substring(severToCustom.length-1,severToCustom.length)
+			console.log(len+"名字长度")
+			//得到ID
+			var broadcastNewsOfID = severToCustom.substring(severToCustom.length - 13-len-1, severToCustom.length-len-1) + ''
+			var sendMessageName = severToCustom.substring(severToCustom.length-len-1,severToCustom.length-1)
+			console.log(sendMessageName+'sss')
+			console.log(broadcastNewsOfID)
+			if (broadcastNewsOfID == id) {
+				console.log('dedaoid')
+				var msg = severToCustom.substring(0, severToCustom.length - 13-len-1)
+				console.log('发送给自己的消息：', msg);
+				var upMsg = `
+				<div class="ja">
+				<div class="profile2">
+					${personName}
+				</div>
+				<div class="rightchat">
+					<div class="time2">${hour}:${min}
+
+					</div>
+					<div class="chat2">${msg}
+
+					</div>
+				</div>
+			</div>`
+				console.log(upMsg)
+				var body = document.querySelector(".chatcontent")
+				/* innerHTML:中间商  转换字符串和代码*/
+				body.innerHTML = body.innerHTML + upMsg
+
+				document.querySelector(".textin").value = ' ' //消息清空
+
+				body.scrollTop = body.scrollHeight           /*显示新消息*/
+			}
+			else {
+
+				//将消息发给别人--左边
+				console.log('dedaoid')
+				var msg = severToCustom.substring(0, severToCustom.length - 13-len-1)
+				console.log('得到别人的消息：', msg);
+
+				var upMsg = `<div class="jx1">
+						<div class="profile">
+							${sendMessageName}
+						</div>
+					<div class="leftchat">
+						<div class="time">${hour}:${min}
+		
+						</div>
+						<div class="chat">${msg}
+		
+						</div>
+					</div>`
+				console.log(upMsg)
+				var body = document.querySelector(".chatcontent")
+				/* innerHTML:中间商  转换字符串和代码*/
+				body.innerHTML = body.innerHTML + upMsg
+
+				document.querySelector(".textin").value = ' ' //消息清空
+
+				body.scrollTop = body.scrollHeight           /*显示新消息*/
+			}
+		};
+
+
+
+        
+		function send() {
+			/*获取节点     然后获取具体内容*/
+			var text = document.querySelector(".textin").value
+
+			if (text != '') {
+				var time = new Date()  //实例化对象
+				var hour = time.getHours()
+				var min = String(time.getMinutes()).padStart(2, '0')
+
+				/*格式字符串（下顿号）  拼接内容  
+				var msg = `
+				<div class="ja">
+				<div class="profile2">
+					黄健安
+				</div>
+				<div class="rightchat">
+					<div class="time2">${hour}:${min}
+
+					</div>
+					<div class="chat2">${text}
+
+					</div>
+				</div>
+			</div>`*/
+				//将聊天内容发送给服务端 聊天内容+个人ID
+				var allmsg = text + id + personName +nameLenth
+				websocket.send(allmsg);
+				console.log("向服务端发送消息aaa")
+			}
+		}
+
+
+	</script>
+
+	<style>
+		/*onclick="send()" 点击触发send函数*/
+		body {
+			background-color: #d3dbe3;
+
+		}
+
+		.interface {
+			float: right;
+
+			width: 525px;
+			height: 447px;
+			background-color: white;
+			border: 2px white solid;
+			border-radius: 0px 10px 10px 0px;
+			position:relative;
+			right: 0px;
+			top: 0px;
+			overflow: hidden;
+			/*对超出部分进行隐藏*/
+
+		}
+
+		.toptitle {
+			width: 525px;
+			height: 48px;
+			line-height: 30px;
+			padding-left: 15px;
+			box-sizing: border-box;
+			/*将div框在box里 消除padding影响*/
+			border-bottom: 2px #e4e4e4 solid;
+			border-radius: 10px 10px 0px 0px;
+
+		}
+
+		.chatcontent {
+
+			width: 540px;
+			height: 310px;
+			overflow: auto;
+			/*对于超出区域进行操作   auto hidden scroll*/
+		}
+
+		.jx1 {
+			width: 525px;
+		}
+
+		.jx1::after {
+			/* 伪元素清除浮动  固定格式  实现自适应-删除高度*/
+			content: ' ';
+			display: block;
+			clear: both;
+		}
+
+		.profile {
+			width: 40px;
+			height: 42px;
+			float: left;
+			background-color: #4E6EF2;
+			margin-top: 17px;
+			margin-left: 5px;
+			border-radius: 50%;
+			font-size: 11px;
+			line-height: 40px;
+			text-align: center;
+			color: white;
+		}
+
+		.leftchat {
+			width: 120px;
+			float: left;
+			margin-top: 12px;
+			margin-left: 10px;
+
+		}
+
+		.chat {
+
+			background-color: #d3dbe3;
+			padding: 8px;
+			border-radius: 0px 7px 7px 7px;
+			font-size: 12px;
+			display: inline-block;
+			/*气泡自动伸缩*/
+		}
+
+		.time {
+			font-size: 10px;
+		}
+
+		.time2 {
+			font-size: 10px;
+			text-align: right;
+			width: 108px;
+
+		}
+
+		.ja {
+			width: 525px;
+		}
+
+		.ja::after {
+			/* 伪元素清除浮动  固定格式  实现自适应-删除高度*/
+			content: ' ';
+			display: block;
+			clear: both;
+		}
+
+		.profile2 {
+			width: 40px;
+			height: 42px;
+			float: right;
+			background-color: #4E6EF2;
+			margin-top: 17px;
+			margin-right: 5px;
+			border-radius: 50%;
+			font-size: 11px;
+			line-height: 40px;
+			text-align: center;
+			color: white;
+		}
+
+		.rightchat {
+			width: 120px;
+
+			float: right;
+			margin-top: 12px;
+			margin-left: 30px;
+
+		}
+
+		.chat2 {
+
+			background-color: #95ec69;
+			padding: 8px;
+			border-radius: 7px 0px 7px 7px;
+			font-size: 12px;
+			display: inline-block;
+			float: right;
+			margin-right: 10px;
+
+		}
+
+		.jx2 {
+			width: 525px;
+		}
+
+		.jx2::after {
+			/* 伪元素清除浮动  固定格式  实现自适应-删除高度*/
+			content: ' ';
+			display: block;
+			clear: both;
+		}
+
+		.text {
+			width: 525px;
+			height: 75px;
+			border-top: 2px #e4e4e4 solid;
+			position: relative;
+
+		}
+
+		.textin {
+			/*input 显示文字  value placeholder*/
+			width: 525px;
+			height: 64px;
+			box-sizing: border-box;
+			border-radius: 0px 0px 10px 10px;
+			border: none;
+			outline: none;
+			/*去除内边框*/
+			font-size: 15px;
+			padding-left: 15px;
+			padding-bottom: 34px;
+
+
+		}
+
+		.send {
+			width: 45px;
+			height: 21px;
+			background-color: #4E6EF2;
+			position: absolute;
+			bottom: 18px;
+			right: 20px;
+			border-radius: 5px;
+			color: white;
+			text-align: center;
+			line-height: 19px;
+			font-size: small;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/*    左边界面*/
+
+		.bodyK {
+			float: left;
+			width: 175px;
+			height: 450px;
+			background-color: #DDDDDE;
+			
+			border-radius: 10px 0px 0px 10px;
+			position: relative;
+			left: 0px;
+			top: 0px;
+			border-right: 2px #b83232 solid;
+		}
+
+		.top {
+			width: 175px;
+			height: 50px;
+			background-color: #5287bc;
+			margin: auto;
+			border-bottom: 2px #e4e4e4 solid;
+			border-radius: 10px 0px 0px 0px;
+
+		}
+
+		.friend1 {
+			width: 175px;
+			height: 50px;
+			background-color: white;
+			margin: auto;
+
+			border-bottom: 2px #e4e4e4 solid;
+
+		}
+
+		.leftBgProfile {
+			width: 40px;
+			height: 42px;
+			float: left;
+			background-color: #4E6EF2;
+			margin-top: 2px;
+			margin-left: 5px;
+			border-radius: 20%;
+			font-size: 11px;
+			line-height: 40px;
+			text-align: center;
+			color: white;
+		}
+
+		.name {
+			position: relative;
+			top: 7px;
+			left: 10px;
+			font-size: small;
+		}
+
+		.wx {
+			width: 50px;
+			height: 20px;
+			position: relative;
+			top: 15px;
+			left: 69px;
+			font-size: 15;
+		}
+	</style>
+</body>
+
+</html>
